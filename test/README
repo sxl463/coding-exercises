@@ -1,0 +1,3 @@
+
+#How to link C++11 libraries
+clang++ -std=c++11 test.cpp -o test.out
