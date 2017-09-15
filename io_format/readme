@@ -1,3 +1,82 @@
+
+A "standard" solution: using standard input and output
+
+Code Jam encourages flexible problem-solving: we give you an input file and leave it to you to solve the problem in the way you prefer. It is up to you to choose your language, development environment, architecture, libraries, and so on.
+
+Many of our contestants use a model common in other programming contests like ACM-ICPC and Codeforces: a one-file program that reads the input and produces exactly the required output. This tutorial demonstrates how to use standard input and standard output to apply this model to Code Jam like a pro! Of course, you are still welcome to read input and/or write output in completely different ways; this is just one option.
+
+What are standard input and standard output?
+
+The standard input (stdin) and standard output (stdout) are among the data streams that programs use to interact with the outside world. When you are running a program from the console in the most simple way, stdin is just what is read from the keyboard into the program, and stdout is what is printed on the screen. However, these two streams can be directed to read to, and write from, files!
+
+Suppose that you have a program called "my_program" that you usually run via the command:
+
+MY_PROGRAM
+content_copy
+
+ MY_PROGRAM 
+Note that MY_PROGRAM could be something like ./my_binary if using a language like C++ that compiles to machine code, java my_java_binary_name for a language like Java that uses virtual machines, or python my_python_code.py for a language like Python that is interpreted rather than compiled.
+
+In Linux, Mac OS/X and Windows, you can use < and > to redirect stdin and stdout to files, respectively. So a command line like
+
+ MY_PROGRAM < input_file.txt > output_file.txt 
+content_copy
+
+ MY_PROGRAM < input_file.txt > output_file.txt 
+ 
+will make your program receive the contents of input_file.txt in its stdin, and write the output to its stdout to output_file.txt.
+
+How do I use stdin and stdout for Code Jam?
+
+As you work on a solution, you may wish to read from a file (say, a sample.txt into which you have copied the problem's sample I/O), but still write the output to the console, to avoid having to open or print the output file while you are debugging. You can do this with:
+
+  MY_PROGRAM < sample.txt
+content_copy
+
+  MY_PROGRAM < sample.txt
+ 
+Once you have downloaded an input, you will want to direct your output to a file to upload:
+
+ MY_PROGRAM < small_input.txt > small_output.txt
+content_copy
+
+ MY_PROGRAM < small_input.txt > small_output.txt
+ 
+If your program's algorithm works for both the Small and Large datasets, you can just rerun this command without even changing nor recompiling the program:
+
+  MY_PROGRAM < large_input.txt > large_output.txt 
+content_copy
+
+  MY_PROGRAM < large_input.txt > large_output.txt 
+ 
+How do I write my code to read from stdin and write to stdout?
+
+Consider the following very simple problem. The input consists of one line with a number of test cases T, and then T more lines, each of which contains two positive integers N and M. The desired output form is Case #x: y z, where x, y, and z are all integers; x is the case number (starting from 1), y is the sum of N and M, and z is the product of N and M.
+
+Here's some code to solve this problem, reading from stdin and writing to stdout, in various languages. For our examples, we use some of the most commonly used languages in Code Jam, but you are certainly not limited to using just these!
+
+C++
+content_copy
+
+
+ #include <iostream>  // includes cin to read from stdin and cout to write to stdout
+using namespace std;  // since cin and cout are both in namespace std, this saves some text
+int main() {
+  int t, n, m;
+  cin >> t;  // read t. cin knows that t is an int, so it reads it as such.
+  for (int i = 1; i <= t; ++i) {
+    cin >> n >> m;  // read n and then m.
+    cout << "Case #" << i << ": " << (n + m) << " " << (n * m) << endl;
+    // cout knows that n + m and n * m are ints, and prints them accordingly.
+    // It also knows "Case #", ": ", and " " are strings and that endl ends the line.
+  }
+
+  return 0;
+}
+
+
+
+
 http://www.lai18.com/content/4124635.html
 
 
